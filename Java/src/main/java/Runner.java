@@ -1,12 +1,19 @@
+import airport.Airport;
+//import com.sun.org.slf4j.internal.Logger;
+//import com.sun.org.slf4j.internal.LoggerFactory;
 import models.MilitaryType;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+import planes.MilitaryPlane;
+import planes.PassengerPlane;
+import planes.Plane;
 
 import java.util.Arrays;
 import java.util.List;
 
+
+//куда его засунуть, SonarList ругается
 public class Runner {
+//    private static final Logger logger = LoggerFactory.getLogger(Runner.class);
+
     static List<Plane> planes = Arrays.asList(
             new PassengerPlane("Boeing-737", 900, 12000, 60500, 164),
             new PassengerPlane("Boeing-737-800", 940, 12300, 63870, 192),
@@ -27,14 +34,10 @@ public class Runner {
     public static void main(String[] args) {
         Airport airport = new Airport(planes);
         Airport militaryAirport = new Airport(airport.getMilitaryPlanes());
-        Airport passengerAirport = new Airport(airport.getPasPl());
-        System.out.println("Military airport sorted by max distance: " + militaryAirport
-                .sortByMaxDistance()
-                .toString());
-        System.out.println("Passenger airport sorted by max speed: " + passengerAirport
-                .sortByMaxSpeed()
-                .toString());
-
-        System.out.println("Plane with max passenger capacity: " + passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
+        Airport passengerAirport = new Airport(airport.getPassengerPlanes());
+        // не работает
+//        logger.debug("Military airport sorted by max distance: {}", militaryAirport.sortByMaxDistance().toString());
+//        logger.debug("Passenger airport sorted by max speed: {}", passengerAirport.sortByMaxSpeed().toString());
+//        logger.debug("Plane with max passenger capacity: {}", passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
     }
 }
