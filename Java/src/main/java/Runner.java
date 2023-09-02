@@ -1,18 +1,15 @@
 import airport.Airport;
-//import com.sun.org.slf4j.internal.Logger;
-//import com.sun.org.slf4j.internal.LoggerFactory;
 import models.MilitaryType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import planes.MilitaryPlane;
 import planes.PassengerPlane;
 import planes.Plane;
-
 import java.util.Arrays;
 import java.util.List;
 
-
-//куда его засунуть, SonarList ругается
 public class Runner {
-//    private static final Logger logger = LoggerFactory.getLogger(Runner.class);
+    private static final Logger logger = LoggerFactory.getLogger(Runner.class);
 
     static List<Plane> planes = Arrays.asList(
             new PassengerPlane("Boeing-737", 900, 12000, 60500, 164),
@@ -35,9 +32,9 @@ public class Runner {
         Airport airport = new Airport(planes);
         Airport militaryAirport = new Airport(airport.getMilitaryPlanes());
         Airport passengerAirport = new Airport(airport.getPassengerPlanes());
-        // не работает
-//        logger.debug("Military airport sorted by max distance: {}", militaryAirport.sortByMaxDistance().toString());
-//        logger.debug("Passenger airport sorted by max speed: {}", passengerAirport.sortByMaxSpeed().toString());
-//        logger.debug("Plane with max passenger capacity: {}", passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
+
+        logger.info("Military airport sorted by max distance: {}", militaryAirport.sortByMaxDistance().toString());
+        logger.info("Passenger airport sorted by max speed: {}", passengerAirport.sortByMaxSpeed().toString());
+        logger.info("Plane with max passenger capacity: {}", passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
     }
 }

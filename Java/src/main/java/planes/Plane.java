@@ -1,7 +1,7 @@
 package planes;
 
 public abstract class Plane {
-    String model;
+    private final String model;
     private final int maxSpeed;
     private final int maxFlightDistance;
     private final int maxLoadCapacity;
@@ -11,22 +11,6 @@ public abstract class Plane {
         this.maxSpeed = maxSpeed;
         this.maxFlightDistance = maxFlightDistance;
         this.maxLoadCapacity = maxLoadCapacity;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public int getMaxFlightDistance() {
-        return maxFlightDistance;
-    }
-
-    public int getMaxLoadCapacity() {
-        return maxLoadCapacity;
     }
 
     @Override
@@ -56,5 +40,21 @@ public abstract class Plane {
         result = 31 * result + maxFlightDistance;
         result = 31 * result + maxLoadCapacity;
         return result;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public int getMaxFlightDistance() {
+        return maxFlightDistance;
+    }
+
+    public int getMaxLoadCapacity() {
+        return maxLoadCapacity;
     }
 }

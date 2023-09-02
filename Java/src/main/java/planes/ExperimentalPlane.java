@@ -3,7 +3,6 @@ package planes;
 import models.ClassificationLevel;
 
 public class ExperimentalPlane extends Plane {
-
     private final ClassificationLevel classificationLevel;
 
     public ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ClassificationLevel classificationLevel) {
@@ -22,7 +21,6 @@ public class ExperimentalPlane extends Plane {
         if (!super.equals(o)) return false;
 
         ExperimentalPlane that = (ExperimentalPlane) o;
-
         return classificationLevel == that.classificationLevel;
     }
 
@@ -32,20 +30,6 @@ public class ExperimentalPlane extends Plane {
         result = 31 * result + (classificationLevel != null ? classificationLevel.hashCode() : 0);
         return result;
     }
-
-    // нужно ли их вообще переопределять? здесь же используется методы родителя, которые и так наследуются?
-    // плюс тут новая характеристика, classificationLevel, вроде тогда надо переопределить…
-//    @Override
-//    public boolean equals(Object o) {
-//
-//        return super.equals(o);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//
-//        return super.hashCode();
-//    }
 
     @Override
     public String toString() {

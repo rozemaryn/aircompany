@@ -1,8 +1,7 @@
 package planes;
 import models.MilitaryType;
 
-public class MilitaryPlane extends Plane{
-
+public class MilitaryPlane extends Plane {
     private final MilitaryType type;
 
     public MilitaryPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, MilitaryType type) {
